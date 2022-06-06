@@ -1,6 +1,6 @@
 {
-  "name": "Images App",
-  "short_name": "Images App",
+  "name": "Ledger PWA",
+  "short_name": "Ledger PWA",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
