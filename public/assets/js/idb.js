@@ -1,33 +1,33 @@
 let db;
-const request = indexedDB.open('transaction_hunt', 1);
+const request = indexedDB.open('transaction_pending', 1);
 
 request.onupgradeneeded = function(event) {
-  console.log("entered idb request onupgradeneeded");
+  // console.log("entered idb request onupgradeneeded");
   const db = event.target.result;
   db.createObjectStore('new_transaction', { autoIncrement: true });
 };
 
 request.onsuccess = function(event) {
-  console.log("entered idb request onsuccess");
+  // console.log("entered idb request onsuccess");
   // when db is successfully created with its object store (from onupgradedneeded event above), save reference to db in global variable
   db = event.target.result;
 
   // check if app is online, if yes run checkDatabase() function to send all local db data to api
   if (navigator.onLine) {
-    console.log("entered idb navigator.onLine");
+    // console.log("entered idb navigator.onLine");
     sendTransaction();
     // console.log("navigator.online: true")
   }
 };
 
 request.onerror = function(event) {
-  console.log("entered idb request onerror");
+  // console.log("entered idb request onerror");
   // log error here
   console.log(event.target.errorCode);
 };
 
 function saveRecord(record) {
-  console.log("entered idb fn saveRecord");
+  // console.log("entered idb fn saveRecord");
   const transaction = db.transaction(['new_transaction'], 'readwrite');
 
   const transactionObjectStore = transaction.objectStore('new_transaction');
@@ -37,7 +37,7 @@ function saveRecord(record) {
 }
 
 function uploadTransaction() {
-  console.log("entered idb fn uploadTransaction");
+  // console.log("entered idb fn uploadTransaction");
   // open a transaction on your pending db
   const transaction = db.transaction(['new_transaction'], 'readwrite');
 
@@ -48,7 +48,7 @@ function uploadTransaction() {
   const getAll = transactionObjectStore.getAll();
 
   getAll.onsuccess = function() {
-    console.log("entered idb fn uploadTransaction: getAll.onsuccess");
+    // console.log("entered idb fn uploadTransaction: getAll.onsuccess");
     // if there was data in indexedDb's store, let's send it to the api server
     if (getAll.result.length > 0) {
       fetch('/api/transaction/bulk', {
@@ -61,7 +61,7 @@ function uploadTransaction() {
       })
         .then(response => response.json())
         .then(serverResponse => {
-          console.log("entered idb fn uploadTransaction: getAll.onsuccess: serverResponse");
+          // console.log("entered idb fn uploadTransaction: getAll.onsuccess: serverResponse");
           if (serverResponse.message) {
             throw new Error(serverResponse);
           }
