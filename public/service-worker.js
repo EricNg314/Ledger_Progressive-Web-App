@@ -14,7 +14,8 @@ const FILES_TO_CACHE = [
   '/assets/icons/icon-192x192.png',
   '/assets/icons/icon-384x384.png',
   '/assets/icons/icon-512x512.png',
-  '/assets/js/index.js'
+  '/assets/js/index.js',
+  '/assets/js/idb.js'
 ];
 
 // Install the service worker
