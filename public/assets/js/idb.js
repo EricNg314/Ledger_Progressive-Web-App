@@ -12,10 +12,10 @@ request.onsuccess = function(event) {
   // when db is successfully created with its object store (from onupgradedneeded event above), save reference to db in global variable
   db = event.target.result;
 
-  // check if app is online, if yes run checkDatabase() function to send all local db data to api
+  // check if app is online, if yes run uploadTransaction() function to send all local db data to api
   if (navigator.onLine) {
     // console.log("entered idb navigator.onLine");
-    sendTransaction();
+    uploadTransaction();
     // console.log("navigator.online: true")
   }
 };
@@ -81,3 +81,9 @@ function uploadTransaction() {
 
 // listen for app coming back online
 window.addEventListener('online', uploadTransaction);
+// window.addEventListener('online', () => {
+//   console.log("device online")
+// });
+// window.addEventListener('offline', () => {
+//   console.log("device offline")
+// });

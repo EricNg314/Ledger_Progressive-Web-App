@@ -1,5 +1,5 @@
-const CACHE_NAME = 'ledger_pwa-site-cache-v1';
-const DATA_CACHE_NAME = 'ledger_pwa-data-cache-v1';
+const CACHE_NAME = 'ledger_pwa-site-cache-v4';
+const DATA_CACHE_NAME = 'ledger_pwa-data-cache-v4';
 
 const FILES_TO_CACHE = [
   '/',
