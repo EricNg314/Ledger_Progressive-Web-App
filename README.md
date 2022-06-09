@@ -12,7 +12,7 @@
 ## Description
 A progressive web app created with MongoDB to demonstrate indexDB and ability to work offline until connection is reestablished. Including the ability to download as a standalone app, through the options parameter within browser.
 
-Deployed Here: 
+Deployed Here: https://ledger-progressive-web-app.herokuapp.com/
 
 
 
