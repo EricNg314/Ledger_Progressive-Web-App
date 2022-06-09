@@ -14,6 +14,9 @@ A progressive web app created with MongoDB to demonstrate indexDB and ability to
 
 Deployed Here: https://ledger-progressive-web-app.herokuapp.com/
 
+<div style="display:flex; flex-direction: row;">
+ <img src="./assets/site_IMG.png" width="100%" alt="Homepage from Points Of Interest Blog.">
+</div>
 
 
 ## Table Of Contents
